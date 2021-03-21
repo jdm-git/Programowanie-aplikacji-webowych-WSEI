@@ -3,6 +3,9 @@ class MathApp{
         this.getInputs();
         this.watchInputValues();
     }
+    generateInputs(){
+        
+    }
     getInputs(){
         this.data1Input = document.querySelector('#data1');
         this.data2Input = document.querySelector('#data2');
