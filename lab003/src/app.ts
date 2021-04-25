@@ -34,6 +34,13 @@ export class App {
     const iconCode = data.weather[0].icon;
     const iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
     console.log(temperature, pressure, humidity);
-    document.getElementById("weather").innerHTML = `<img src='${iconUrl}'/>`;
+    document.getElementById("weather").innerHTML = `
+    <div style='display: flex; flex-direction: column;'>
+    <img src='${iconUrl}'/>
+    <div><label>Temperature: </label><span>${temperature}°C</span></div>
+    <div><label>Pressure: </label><span>${pressure}hPA</span></div>
+    <div><label>Humidity: </label><span>${humidity}%</span></div>
+    </div>
+    `;
   }
 }
