@@ -31,6 +31,9 @@ export class App {
     const temperature = (data.main.temp - 273.15).toFixed();
     const pressure = data.main.pressure;
     const humidity = data.main.humidity;
+    const iconCode = data.weather[0].icon;
+    const iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
     console.log(temperature, pressure, humidity);
+    document.getElementById("weather").innerHTML = `<img src='${iconUrl}'/>`;
   }
 }
