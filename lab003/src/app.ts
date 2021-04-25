@@ -1,10 +1,13 @@
 export class App {
   opwApiKey = "2eab94e68e577bc023a653cc6be04573";
   constructor() {
+    document
+      .getElementById("check")
+      .addEventListener("click", () => this.checkWeather());
     this.getCityInfo("krakow");
   }
   async getCityInfo(city: string) {
-    const weather = await this.getWeather("krakow");
+    const weather = await this.getWeather(city);
     this.saveData(weather);
     this.showData();
   }
@@ -26,7 +29,11 @@ export class App {
       return {};
     }
   }
-  checkWeather() {}
+  checkWeather() {
+    const input = (<HTMLInputElement>document.getElementById("city")).value;
+    console.log(input);
+    if (input) this.getCityInfo(input);
+  }
 
   showData() {
     const data = this.getData();
