@@ -4,6 +4,7 @@ export class App {
   notes: Note[] = [];
   constructor() {
     this.start();
+    localStorage.clear();
   }
   start(): void {
     document.querySelector("#addNewNote").addEventListener("click", () => {
@@ -13,6 +14,10 @@ export class App {
   loadNotes(): void {
     if (this.notes.length == 0) return;
     console.log(this.notes);
+    const data = JSON.parse(localStorage.getItem("notes"));
+    data.forEach((n: Note[]) => {
+      console.log(Object.keys(n));
+    });
   }
 
   addNewNote(): void {
@@ -24,6 +29,7 @@ export class App {
       document.querySelector<HTMLInputElement>("#pinned").checked;
     this.notes.push(new Note(newNoteTitle, newNoteText, isPinned));
 
+    this.saveData(this.notes);
     this.loadNotes();
   }
 

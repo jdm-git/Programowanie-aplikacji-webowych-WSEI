@@ -8,9 +8,13 @@
   <body>
     <main>
       <div id="newNote">
-        <div><input id="title" type="text" placeholder="Title" /></div>
+        <div><input id="title" type="text" placeholder="Title" required /></div>
         <div>
-          <span contenteditable data-placeholder="Create a note..."></span>
+          <span
+            contenteditable
+            data-placeholder="Create a note..."
+            required
+          ></span>
         </div>
         <input type="checkbox" id="pinned" name="pinned" />
         <label for="pinned">Pin Note</label>
