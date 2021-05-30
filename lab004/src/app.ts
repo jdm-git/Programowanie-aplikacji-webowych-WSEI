@@ -4,7 +4,7 @@ export class App {
   notes: Note[] = [];
   constructor() {
     this.start();
-    localStorage.clear();
+    //localStorage.clear();
   }
   start(): void {
     document.querySelector("#addNewNote").addEventListener("click", () => {
@@ -16,7 +16,7 @@ export class App {
     console.log(this.notes);
     const data = JSON.parse(localStorage.getItem("notes"));
     data.forEach((n: Note[]) => {
-      console.log(Object.keys(n));
+      console.log(n);
     });
   }
 
