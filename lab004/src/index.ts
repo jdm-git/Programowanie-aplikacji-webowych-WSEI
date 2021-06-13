@@ -3,7 +3,7 @@ import { App } from "./app";
 import "./main.scss";
 import firebase from "firebase";
 
-//const app = new App();
+const app = new App();
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db = firebaseApp.firestore();
