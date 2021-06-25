@@ -1,3 +1,5 @@
+import chart from "chart.js";
+
 export class App {
   opwApiKey = "2eab94e68e577bc023a653cc6be04573";
   constructor() {
@@ -5,6 +7,7 @@ export class App {
       .getElementById("check")
       .addEventListener("click", () => this.checkWeather());
     this.getCityInfo("krakow");
+    const config = "123";
   }
   async getCityInfo(city: string) {
     const weather = await this.getWeather(city);
