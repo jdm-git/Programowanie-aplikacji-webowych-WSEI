@@ -18,17 +18,28 @@
     <audio src="sounds/tink.wav" data-sound="tink"></audio>
     <audio src="sounds/tom.wav" data-sound="tom"></audio>
     <div class="playBtns">
-      <button id="q">Q</button>
-      <button id="w">W</button>
-      <button id="e">E</button>
-      <button id="r">R</button>
-      <button id="t">T</button>
-      <button id="a">A</button>
-      <button id="s">S</button>
-      <button id="d">D</button>
-      <button id="f">F</button>
+      <div class="first">
+        <button id="q">Q</button>
+        <button id="w">W</button>
+        <button id="e">E</button>
+        <button id="r">R</button>
+        <button id="t">T</button>
+      </div>
+      <div class="second">
+        <button id="a">A</button>
+        <button id="s">S</button>
+        <button id="d">D</button>
+        <button id="f">F</button>
+      </div>
     </div>
-    <button id="btnChannel1">Play Channel1</button>
+    <div class="recordBtn">
+      <button id="btnRecord1">Record to 1st Channel</button>
+      <button id="btnRecord2">Record to 2nd Channel</button>
+    </div>
+    <div class="playBtn">
+      <button id="btnChannel1">Play Channel1</button>
+      <button id="btnChannel2">Play Channel2</button>
+    </div>
 
     <script src="index.js"></script>
   </body>

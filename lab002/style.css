@@ -23,3 +23,6 @@ body {
 .playBtns button:focus {
   background-color: black;
 }
+.first {
+  margin-bottom: 30px;
+}
