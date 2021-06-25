@@ -1,0 +1,25 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  background-color: darkgray;
+}
+.playBtns {
+  width: 100%;
+  display: flexbox;
+  text-align: center;
+  margin-top: 15px;
+}
+.playBtns button {
+  border: 0;
+  background-color: aqua;
+  padding: 8px;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  margin-left: 10px;
+}
+.playBtns button:focus {
+  background-color: black;
+}

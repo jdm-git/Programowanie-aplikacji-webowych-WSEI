@@ -10,9 +10,9 @@ var tom;
 var channel1 = [];
 appStart();
 function appStart() {
-    document.body.addEventListener('keypress', onKeyDown);
-    var btnChannel1Play = document.querySelector('#btnChannel1');
-    btnChannel1Play.addEventListener('click', onPlayChanell1);
+    document.body.addEventListener("keypress", onKeyDown);
+    var btnChannel1Play = document.querySelector("#btnChannel1");
+    btnChannel1Play.addEventListener("click", onPlayChanell1);
     getSounds();
 }
 function onPlayChanell1() {
@@ -37,44 +37,52 @@ function onKeyDown(ev) {
     var time = ev.timeStamp;
     channel1.push({ key: key, time: time }); // skrocona notacja key: value
     playSound(key);
+    var focusButton = function () {
+        var btn = document.getElementById(key);
+        btn.focus();
+        window.setTimeout(function () {
+            btn.blur();
+        }, 300);
+    };
+    focusButton();
     console.log(channel1);
 }
 function playSound(key) {
     // const keyboardKey = hihatSound.dataset.key
     switch (key) {
-        case 'q':
+        case "q":
             hihatSound.currentTime = 0;
             hihatSound.play();
             break;
-        case 'w':
+        case "w":
             clap.currentTime = 0;
             clap.play();
             break;
-        case 'e':
+        case "e":
             boom.currentTime = 0;
             boom.play();
             break;
-        case 'r':
+        case "r":
             kick.currentTime = 0;
             kick.play();
             break;
-        case 't':
+        case "t":
             openhat.currentTime = 0;
             openhat.play();
             break;
-        case 'a':
+        case "a":
             ride.currentTime = 0;
             ride.play();
             break;
-        case 's':
+        case "s":
             snare.currentTime = 0;
             snare.play();
             break;
-        case 'd':
+        case "d":
             tink.currentTime = 0;
             tink.play();
             break;
-        case 'f':
+        case "f":
             tom.currentTime = 0;
             tom.play();
             break;
