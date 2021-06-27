@@ -7,15 +7,13 @@ export class Note {
   color: string;
   pinned: boolean;
   createdAt: Date;
-  editedAt?: Date;
 
   constructor(
     title: string,
     message: string,
-    color: string = "#fff",
+    color: string = "#2e2f33",
     pinned: boolean = false,
     createdAt: Date = new Date(),
-    editedAt: Date = null,
     id: string | null = null
   ) {
     this.title = title;
@@ -23,7 +21,6 @@ export class Note {
     this.color = color;
     this.pinned = pinned;
     this.createdAt = createdAt;
-    this.editedAt = editedAt;
     this.id = id;
   }
   togglePinned(): void {
@@ -39,7 +36,7 @@ export class Note {
                     }" name="title" />
                     <span class="pin edit-hidden"><i class="${
                       this.pinned ? "fas" : "far"
-                    } fa-bookmark"></i></span>
+                    } fa-flag"></i></span>
                 </div>
                 <div class="details">
                     <span class="edit-hidden">${this.message}</span>
@@ -76,7 +73,6 @@ export class Note {
       data.color,
       data.pinned,
       new Date(data.createdAt),
-      data.editedAt !== null ? new Date(data.editedAt) : null,
       data.id
     );
   }
@@ -88,5 +84,7 @@ interface NoteInterface {
   color: string;
   pinned: boolean;
   createdAt: string;
-  editedAt?: string;
 }
+
+export { NoteInterface };
+export default Note;

@@ -1,5 +1,5 @@
 export const CONFIG = {
-  storageType: "local",
+  storageType: "firebase",
   firebaseConfig: {
     apiKey: "AIzaSyDEvC9xHXmEiBBxqLCtmAegDXDHZsMr7tQ",
     authDomain: "notekeeper-bf46a.firebaseapp.com",

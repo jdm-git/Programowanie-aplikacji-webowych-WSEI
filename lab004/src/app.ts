@@ -1,39 +1,29 @@
-import { Note } from "./note";
+import Notes from "./Notes";
+import LocalAppStorage from "./Storage/LocalAppStorage";
+import { CONFIG } from "./config";
+import AppStorage from "./AppStorage";
+import FirebaseAppStorage from "./Storage/FirebaseAppStorage";
 
 export class App {
-  notes: Note[] = [];
   constructor() {
-    this.start();
-    //localStorage.clear();
-  }
-  start(): void {
-    document.querySelector("#addNewNote").addEventListener("click", () => {
-      this.addNewNote();
-    });
-  }
-  loadNotes(): void {
-    if (this.notes.length == 0) return;
-    console.log(this.notes);
-    const data = JSON.parse(localStorage.getItem("notes"));
-    data.forEach((n: Note[]) => {
-      console.log(n);
-    });
+    App.init();
   }
 
-  addNewNote(): void {
-    const newNoteTitle: string =
-      document.querySelector<HTMLInputElement>("#title").value;
-    const newNoteText: string =
-      document.querySelector("[contenteditable]").textContent;
-    const isPinned: boolean =
-      document.querySelector<HTMLInputElement>("#pinned").checked;
-    this.notes.push(new Note(newNoteTitle, newNoteText, isPinned));
-
-    this.saveData(this.notes);
-    this.loadNotes();
+  private static init(): void {
+    new Notes(document.querySelector(".container"), App.createStorage());
   }
 
-  saveData(data: any) {
-    localStorage.setItem("notes", JSON.stringify(data));
+  private static createStorage(): AppStorage {
+    switch (CONFIG.storageType) {
+      case "localStorage": {
+        return new LocalAppStorage();
+      }
+
+      case "firebase": {
+        return new FirebaseAppStorage();
+      }
+    }
+
+    return new LocalAppStorage();
   }
 }
