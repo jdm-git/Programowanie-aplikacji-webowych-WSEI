@@ -1,5 +1,3 @@
-import chart from "chart.js";
-
 export class App {
   opwApiKey = "2eab94e68e577bc023a653cc6be04573";
   constructor() {
